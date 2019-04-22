@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+
+        function lvlone(){
+            disp.val("Hello world")
+        }
+
+        $(document).ready(function () {
+            var input = $("#input");
+            var disp = $("#display");
+            var lg = $("#log");
+            input.focusin();
+            input.keypress(function (e) {
+                if (e.which == 13) {
+                    if(input.val() == "start") {lvlone();};
+
+                    lg.prepend("<li>"+input.val()+"</li>");
+                    input.val("");
+                }
+            });
+        })
+    </script>
+    <style>
+        body {
+            background-color: black;
+            color: white
+        }
+
+        .console-text {
+            font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
+        }
+
+        input, textarea {
+            background-color: black;
+            color: white;
+            border-style: none;
+            width: 100%;
+            height: auto;
+        }
+
+        input:focus {
+            border-style: none;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 console-text" id="console">
+                <input id="display" class="console-text" readonly>To begin, type "start" and press the [Enter] key...</input>\
+                <input id="input" class="console-text" autofocus></input>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+</body>
+
+<footer style="position:absolute; bottom:0px; width:100%; max-height:25%;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 console-text" id="console">
+                command log:
+                <ul id="log" style="list-style:none">
+                </ul>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+</footer>
+
+</html>
