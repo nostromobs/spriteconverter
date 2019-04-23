@@ -1,13 +1,12 @@
 //Game.js
-
-function lvlone(){
-    disp.val("Hello world")
-}
+var input = false;
+    disp = false;
+    lg = false;
 
 $(document).ready(function () {
-    var input = $("#input");
-    var disp = $("#display");
-    var lg = $("#log");
+    input = $("#input");
+    disp = $("#display");
+    lg = $("#log");
     input.focusin();
     input.keypress(function (e) {
         if (e.which == 13) {
@@ -18,3 +17,8 @@ $(document).ready(function () {
         }
     });
 })
+
+
+function lvlone(){
+    disp.val("Hello world")
+}
